@@ -39,6 +39,7 @@ class Application extends CI_Controller {
 
 		// finally, build the browser page!
 		$this->data['data'] = &$this->data;
+		$this->data['sessionid'] = session_id();
 		$this->parser->parse('_template', $this->data);
 	}
 
@@ -50,6 +51,9 @@ class Application extends CI_Controller {
 		$choices[] = array('name' => "Alpha", 'link' => '/alpha');
 		$choices[] = array('name' => "Beta", 'link' => '/beta');
 		$choices[] = array('name' => "Gamma", 'link' => '/gamma');
+		$choices[] = array('name' => "Login", 'link' => './auth');
+		$choices[] = array('name' => "Logout", 'link' => './logout');
+
 		return $choices;
 	}
 
